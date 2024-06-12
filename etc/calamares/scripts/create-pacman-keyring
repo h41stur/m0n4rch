@@ -1,0 +1,6 @@
+#!/bin/bash
+
+haveged -w 1024
+pacman-key --init
+pkill haveged
+pacman-key --populate archlinux

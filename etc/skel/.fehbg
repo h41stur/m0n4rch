@@ -1,0 +1,2 @@
+#!/bin/sh
+feh --no-fehbg --bg-fill /usr/share/images/wallpapers/$(ls /usr/share/images/wallpapers/ | shuf -n 1)

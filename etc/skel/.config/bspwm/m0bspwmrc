@@ -1,0 +1,43 @@
+#! /bin/sh
+
+pgrep -x sxhkd > /dev/null || sxhkd &
+vmware-user-suid-wrapper
+vmhgfs-fuse -o allow_other -o auto_unmount .host:/shared ${HOME}/shared
+
+#bspc config pointer_modifier mod1
+
+NOTE=$(xrandr -q | grep -w connected | cut -d ' ' -f1 | head -n1)
+MONITOR=$(xrandr -q | grep -w connected | cut -d ' ' -f1 | tail -n1)
+MONITOR_CONN=$(xrandr -q | grep 'HDMI' | grep -w connected | wc -l)
+
+if [ $MONITOR_CONN -gt 0 ]; then
+		xrandr --output "$MONITOR" --primary --mode 3440x1440 --rotate normal --output "$NOTE" --mode 2560x1440 --rotate normal --right-of "$MONITOR"
+		bspc monitor "$MONITOR" -d I II III IV V
+		bspc monitor "$NOTE" -d VI VII VIII IX X
+else
+		bspc monitor -d I II III IV V VI VII VIII IX X
+fi
+
+bspc config border_width         2
+bspc config window_gap          12
+
+bspc config split_ratio          0.52
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+
+bspc rule -a calamares state=floating
+bspc rule -a Gimp desktop='^8' state=floating follow=on
+bspc rule -a Chromium desktop='^2'
+bspc rule -a mplayer2 state=floating
+bspc rule -a Kupfer.py focus=on
+bspc rule -a Screenkey manage=off
+xfce4-power-manager &
+${HOME}/.fehbg
+compton &
+/usr/bin/numlockx on
+${HOME}/.config/polybar/launch.sh &
+wmname LG3D
+xsetroot -cursor_name left_ptr &
+setxkbmap us_intl
+xsettingsd &
+picom &

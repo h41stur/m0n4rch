@@ -1,0 +1,48 @@
+# M0n4rch custom settings
+# SPDX-FileCopyrightText: no
+# SPDX-License-Identifier: CC0-1.0
+#
+# Product branding information
+#
+---
+componentName:  m0n4rch
+
+welcomeStyleCalamares:   false
+
+welcomeExpandingLogo:   true
+
+windowExpanding:    normal
+
+windowSize: 800px,520px
+
+windowPlacement: center
+
+sidebar: widget
+
+navigation: widget
+
+strings:
+    productName:         "M0n4rch OS"
+    shortProductName:    m0n4rch
+    version:             2024
+    shortVersion:        2024
+    versionedName:       m0n4rch
+    shortVersionedName:  m0n4rch
+    bootloaderEntryName: m0n4rch
+    productUrl:          https://h41stur.com/
+
+images:
+    productIcon:         "squid.png"
+    productLogo:         "logo.png"
+    productWallpaper:    "wallpaper.png"
+    productWelcome:      "languages.png"
+
+style:
+   SidebarBackground:        "#eaf3e5"
+   SidebarText:              "#000000"
+   SidebarTextCurrent:       "#eaf3e5"
+   SidebarBackgroundCurrent: "#D35400"
+
+slideshow:               "show.qml"
+
+slideshowAPI: 2

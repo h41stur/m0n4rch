@@ -1,0 +1,6 @@
+[Desktop Entry]
+Exec=wallpaper
+Icon=application-x-shellscript
+Name=wallpaper
+Type=Application
+X-KDE-AutostartScript=true

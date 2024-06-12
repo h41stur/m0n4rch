@@ -1,0 +1,60 @@
+#!<%= ENV["SHELL"] || "/bin/bash" %>
+wemux ls 2>/dev/null
+
+if [ "$?" -eq 127 ]; then
+  cd <%= root || "." %>
+
+  # Run pre command.
+  <%= pre %>
+
+  # Create the session and the first window.
+  TMUX= <%= tmux_new_session_command %>
+
+  # Set the default path.
+  <%- if root? -%>
+  <%= tmux %> set-option -t <%= name %> <%= Tmuxinator::Config.default_path_option %> <%= root -%> 1>/dev/null
+  <%- end -%>
+
+  # Create other windows.
+  <%- windows.drop(1).each do |window| -%>
+  <%= window.tmux_new_window_command %>
+  <%- end -%>
+
+  <%- windows.each do |window| -%>
+
+  # Window "<%= window.name %>"
+    <% if window.synchronize_before? %>
+  <%= window.tmux_synchronize_panes %>
+    <% end %>
+    <%- unless window.panes? -%>
+  <%= window.tmux_pre_window_command %>
+    <%- window.commands.each do |command| -%>
+  <%= command %>
+    <%- end -%>
+    <%- else -%>
+      <%- window.panes.each do |pane| -%>
+  <%= pane.tmux_pre_window_command %>
+  <%= pane.tmux_pre_command %>
+        <%- pane.commands.each do |command| -%>
+  <%= pane.tmux_main_command(command) %>
+        <%- end -%>
+
+      <%- unless pane.last? -%>
+  <%= pane.tmux_split_command %>
+      <%- end -%>
+  <%= window.tmux_layout_command %>
+    <%- end -%>
+
+  <%= window.tmux_select_first_pane %>
+    <%- end -%>
+
+    <%- if window.synchronize_after? -%>
+  <%= window.tmux_synchronize_panes %>
+    <%- end %>
+  <%- end -%>
+
+  <%= tmux %> select-window -t <%= startup_window %>
+  <%= tmux %> select-pane -t <%= startup_pane %>
+fi
+
+wemux attach
