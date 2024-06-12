@@ -738,28 +738,21 @@ zlib
 zsh
 zstd
 a52dec
-accountsservice
-aisleriot
 alsa-firmware
 alsa-plugins
 apr
 apr-util
 archlinux-appstream-data
 aribb24
-ark
 aspell
 aspell-en
 attica
 audacious
 audacious-plugins
-audiocd-kio
 baloo
 baloo-widgets
-bluedevil
 bluez
 bluez-utils
-breeze-gtk
-breeze-icons
 breezy
 bridge-utils
 cairomm-1.16
@@ -779,12 +772,10 @@ cups-filters
 cups-pdf
 cups-pk-helper
 devtools
-discover
 dkms
 dnsutils
 docker
 docker-compose
-dolphin
 dos2unix
 doxygen
 dvdauthor
@@ -800,7 +791,6 @@ expac
 extra-cmake-modules
 faac
 faad2
-fastfetch
 ffmpeg4.4
 ffmpegthumbnailer
 filezilla
@@ -812,7 +802,6 @@ frei0r-plugins
 fuse2
 fwupd
 gdb
-geany
 ghostscript
 glew
 glibmm-2.68
@@ -836,7 +825,6 @@ gtk-engine-murrine
 gtk-engines
 gtkmm-4.0
 gutenprint
-guvcview
 gvfs
 gvfs-afc
 gvfs-goa
@@ -844,7 +832,6 @@ gvfs-gphoto2
 gvfs-mtp
 gvfs-nfs
 gvfs-smb
-gwenview
 hashcat
 hspell
 hunspell
@@ -858,12 +845,9 @@ inxi
 java-environment-common
 java-runtime-common
 jdk21-openjdk
-k3b
 karchive
-kate
 kauth
 kbookmarks
-kcalc
 kcmutils
 kcodecs
 kcolorscheme
@@ -873,8 +857,6 @@ kconfigwidgets
 kcoreaddons
 kcrash
 kdbusaddons
-kdeconnect
-kde-gtk-config
 kdnssd
 kdsoap-qt6
 kdsoap-ws-discovery-client
@@ -885,30 +867,23 @@ kguiaddons
 ki18n
 kiconthemes
 kidletime
-kinfocenter
 kio
 kio-extras
-kio-fuse
 kirigami
 kitemmodels
 kitemviews
 kjobwidgets
 knewstuff
 knotifications
-konsole
 kpackage
 kparts
 kpmcore
 krunner
-kscreen
 kservice
 ktextwidgets
 kuserfeedback
 kwallet
-kwallet-pam
-kwayland-integration
 kwidgetsaddons
-kwin
 kwindowsystem
 kxmlgui
 ldb
@@ -967,7 +942,6 @@ lzip
 lzop
 mbedtls2
 media-player-info
-meld
 mencoder
 mercurial
 miniupnpc
@@ -983,22 +957,17 @@ nftables
 noto-fonts
 nss-mdns
 obsidian
-okular
 openal
 opendesktop-fonts
 os-prober
-oxygen
 p7zip
 packagekit
-packagekit-qt6
 pacman-contrib
 pacutils
 pahole
 pangomm-2.48
-papirus-icon-theme
 parallel
 pavucontrol
-pavucontrol-qt
 perl-data-dump
 perl-json
 perl-lwp-protocol-https
@@ -1010,23 +979,13 @@ pipewire-docs
 pipewire-v4l2
 pkgfile
 plasma-activities
-plasma-browser-integration
-plasma-desktop
-plasma-disks
 plasma-framework5
-plasma-nm
-plasma-pa
-plasma-systemmonitor
-plasma-vault
-plasma-workspace-wallpapers
 plocate
 pocl
 polkit-qt6
 poppler
 poppler-glib
 poppler-qt6
-powerdevil
-print-manager
 pugixml
 pybind11
 python-configobj
@@ -1048,7 +1007,6 @@ python-urllib3
 python-websockets
 python-xattr
 python-yaml
-qbittorrent
 qca-qt6
 r8168-lts
 rtkit
@@ -1112,7 +1070,6 @@ solid
 sonnet
 sox
 subversion
-sweeper
 syndication
 syntax-highlighting
 system-config-printer
@@ -1140,7 +1097,6 @@ volume_key
 whois
 xclip
 xcur2png
-xdg-desktop-portal-kde
 xdg-user-dirs
 xf86-input-evdev
 xf86-input-synaptics
@@ -1154,10 +1110,57 @@ xorg-fonts-100dpi
 xorg-fonts-75dpi
 xorg-font-util
 xorg-xwayland
-xsettingsd
 xterm
 yaml-cpp
 yt-dlp
+
+# KDE
+# accountsservice
+# aisleriot
+# ark
+# audiocd-kio
+# bluedevil
+# breeze-gtk
+# breeze-icons
+# discover
+# dolphin
+# geany
+# guvcview
+# gwenview
+# k3b
+# kcalc
+# kate
+# kdeconnect
+# kde-gtk-config
+# kinfocenter
+# kio-fuse
+# konsole
+# kscreen
+# kwallet-pam
+# kwayland-integration
+# kwin
+# meld
+# fastfetch
+# okular
+# oxygen
+# packagekit-qt6
+# papirus-icon-theme
+# pavucontrol-qt
+# plasma-browser-integration
+# plasma-desktop
+# plasma-disks
+# plasma-nm
+# plasma-pa
+# plasma-systemmonitor
+# plasma-vault
+# powerdevil
+# print-manager
+# qbittorrent
+# sweeper
+# spectacle
+# xdg-desktop-portal-kde
+xsettingsd
+
 calamares
 ckbcomp
 mkinitcpio-openswap

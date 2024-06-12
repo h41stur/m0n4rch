@@ -1,5 +1,6 @@
 #!/bin/bash
 
+sudo pacman -S --noconfirm devtools
 
 CHROOT="${HOME}"/Documents/chroot
 mkdir -p "${CHROOT}"
