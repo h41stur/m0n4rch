@@ -10,6 +10,8 @@ However, the biggest motivation for this project was the possibility of studying
 
 This project is released under the GPL open source license and demonstrates one possible method for constructing an Arch Linux based system. The files are free to use and modify. Please keep the author attribution intact when utilizing this project.
 
+[![Download M0n4rch Linux](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/m0n4rch-linux/files/latest/download)
+
 **User password**: m0n4rch  
 **Root password**: toor
 
