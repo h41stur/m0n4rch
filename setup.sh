@@ -1,7 +1,5 @@
 #!/bin/bash
 
-CWD=`pwd`
-CUSTOMPACK="${CWD}/custom/"
 ISONAME="m0n4rch"
 USERNM="m0n4rch"
 USERPASSWD="m0n4rch"
@@ -30,45 +28,6 @@ handlerror() {
 # Prepare pacman.conf
 preppacman() {
     sed "s@file:\/\/.*@file:\/\/${CWD}\/custom@g" pacman_base.conf > pacman.conf
-}
-
-# Build AUR packages
-buildaur() {
-    pacman -S --noconfirm devtools
-    cd ${CUSTOMPACK} || exit
-
-    CHROOT="${HOME}"/Documents/chroot
-    mkdir -p "${CHROOT}"
-    mkarchroot "${CHROOT}"/root base-devel
-    arch-nspawn "${CHROOT}"/root pacman -Syu
-
-    for i in $(/bin/ls PkgBuilds); do
-        echo "Building $i"
-        cd PkgBuilds/$i || exit
-        makechrootpkg -c -r "${CHROOT}"
-        mv *.pkg.tar.zst ../..
-        cd ../../ || exit
-        echo $i
-    done
-
-    for i in $(cat repos ); do
-        pkgname=$(echo $i | cut -d "/" -f 4 | sed 's|\.git||')
-        git clone $i
-        if [[ ! -d "${pkgname}" ]]; then
-            pkgname=$(echo $i | cut -d "/" -f 5 | sed 's|\.git||')
-        fi
-        cd "${pkgname}" || exit
-        makechrootpkg -c -r "${CHROOT}"
-        mv *.pkg.tar.zst ..
-        cd ../ || exit
-        rm -rf "${pkgname}"
-    done
-
-    rm -rf "${CHROOT}"
-    repo-add custom.db.tar.gz *.pkg.tar.zst
-
-
-    cd ${CWD} || exit
 }
 
 # Clean Work directories
@@ -243,7 +202,6 @@ runmkarchiso () {
 rootuser
 handlerror
 preppacman
-buildaur
 prepreqs
 cleanup
 cpreleng
