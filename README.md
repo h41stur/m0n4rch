@@ -1,4 +1,4 @@
-<img src="https://raw.githubusercontent.com/h41stur/m0n4rch/main/etc/calamares/branding/m0n4rch/logo.png" alt="M0n4rch" width="400"/>
+<img src="https://raw.githubusercontent.com/h41stur/m0n4rch/main/etc/calamares/branding/m0n4rch/logo.png" alt="M0n4rch" width="400" align="center" />
 
 # M0n4rch Linux
 
