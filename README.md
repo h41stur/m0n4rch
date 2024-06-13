@@ -1,10 +1,12 @@
-![M0n4rch](etc/calamares/branding/m0n4rch/logo.png)
+![M0n4rch](https://raw.githubusercontent.com/h41stur/m0n4rch/main/etc/calamares/branding/m0n4rch/logo.png)
 
 # M0n4rch Linux
 
 M0n4rch Linux is a complete desktop based on Arch Linux using the LTS kernel. It is configured to use BSPWM and KDE Plasma desktops.
 
 As a long-time Arch Linux user and offensive security professional, I decided to start this project to create a ready-made distribution with the same settings I usually use on a day-to-day basis.
+
+However, the biggest motivation for this project was the possibility of studying and deepening my knowledge of Linux.
 
 This project is released under the GPL open source license and demonstrates one possible method for constructing an Arch Linux based system. The files are free to use and modify. Please keep the author attribution intact when utilizing this project.
 
