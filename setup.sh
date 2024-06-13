@@ -1,5 +1,6 @@
 #!/bin/bash
 
+CWD=`pwd`
 ISONAME="m0n4rch"
 USERNM="m0n4rch"
 USERPASSWD="m0n4rch"
