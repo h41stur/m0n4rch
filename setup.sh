@@ -1,5 +1,7 @@
 #!/bin/bash
 
+CWD=`pwd`
+CUSTOMPACK="${CWD}/custom/"
 ISONAME="m0n4rch"
 USERNM="m0n4rch"
 USERPASSWD="m0n4rch"
@@ -7,6 +9,7 @@ ROOTPASSWD="toor"
 HSTNM="m0n4rch"
 
 # FUNCTIONS
+
 rootuser() {
     if [[ "$EUID" = 0 ]]; then
         continue
@@ -22,6 +25,50 @@ handlerror() {
     clear
     set -uo pipefail
     trap 's=$?; echo "$0: Error on line "$LINENO": $BASH_COMMAND"; exit $s' ERR
+}
+
+# Prepare pacman.conf
+preppacman() {
+    sed "s@file:\/\/.*@file:\/\/${CWD}\/custom@g" pacman_base.conf > pacman.conf
+}
+
+# Build AUR packages
+buildaur() {
+    pacman -S --noconfirm devtools
+    cd ${CUSTOMPACK} || exit
+
+    CHROOT="${HOME}"/Documents/chroot
+    mkdir -p "${CHROOT}"
+    mkarchroot "${CHROOT}"/root base-devel
+    arch-nspawn "${CHROOT}"/root pacman -Syu
+
+    for i in $(/bin/ls PkgBuilds); do
+        echo "Building $i"
+        cd PkgBuilds/$i || exit
+        makechrootpkg -c -r "${CHROOT}"
+        mv *.pkg.tar.zst ../..
+        cd ../../ || exit
+        echo $i
+    done
+
+    for i in $(cat repos ); do
+        pkgname=$(echo $i | cut -d "/" -f 4 | sed 's|\.git||')
+        git clone $i
+        if [[ ! -d "${pkgname}" ]]; then
+            pkgname=$(echo $i | cut -d "/" -f 5 | sed 's|\.git||')
+        fi
+        cd "${pkgname}" || exit
+        makechrootpkg -c -r "${CHROOT}"
+        mv *.pkg.tar.zst ..
+        cd ../ || exit
+        rm -rf "${pkgname}"
+    done
+
+    rm -rf "${CHROOT}"
+    repo-add custom.db.tar.gz *.pkg.tar.zst
+
+
+    cd ${CWD} || exit
 }
 
 # Clean Work directories
@@ -84,22 +131,22 @@ gotools() {
     mkdir -p /tmp/gotools
     GOBIN=/tmp/gotools go install github.com/tomnomnom/assetfinder@latest
     GOBIN=/tmp/gotools go install -v github.com/projectdiscovery/dnsx/cmd/dnsx@latest
-    GOBIN=/tmp/gotools go install -v github.com/owasp-amass/amass/v4/...@master
+    # GOBIN=/tmp/gotools go install -v github.com/owasp-amass/amass/v4/...@master
     GOBIN=/tmp/gotools go install github.com/bp0lr/gauplus@latest
     GOBIN=/tmp/gotools go install github.com/deletescape/goop@latest
     GOBIN=/tmp/gotools go install github.com/tomnomnom/unfurl@latest
     GOBIN=/tmp/gotools go install github.com/hakluke/hakcheckurl@latest
     GOBIN=/tmp/gotools go install github.com/tomnomnom/meg@latest
-    GOBIN=/tmp/gotools go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
+    # GOBIN=/tmp/gotools go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
     GOBIN=/tmp/gotools go install github.com/tomnomnom/waybackurls@latest
     GOBIN=/tmp/gotools go install github.com/projectdiscovery/katana/cmd/katana@latest
-    GOBIN=/tmp/gotools go install -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest
+    # GOBIN=/tmp/gotools go install -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest
     GOBIN=/tmp/gotools go install github.com/takshal/freq@latest
     GOBIN=/tmp/gotools go install github.com/j3ssie/sdlookup@latest
     GOBIN=/tmp/gotools go install -v github.com/hueristiq/xurlfind3r/cmd/xurlfind3r@latest
     GOBIN=/tmp/gotools go install github.com/ferreiraklet/airixss@latest
     GOBIN=/tmp/gotools go install github.com/ferreiraklet/nilo@latest
-    GOBIN=/tmp/gotools go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest
+    # GOBIN=/tmp/gotools go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest
     GOBIN=/tmp/gotools go install github.com/lc/subjs@latest
     GOBIN=/tmp/gotools go install github.com/tomnomnom/qsreplace@latest
     GOBIN=/tmp/gotools go install github.com/hakluke/hakrawler@latest
@@ -195,6 +242,8 @@ runmkarchiso () {
 
 rootuser
 handlerror
+preppacman
+buildaur
 prepreqs
 cleanup
 cpreleng

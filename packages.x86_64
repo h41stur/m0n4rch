@@ -133,6 +133,7 @@ bat
 binutils
 bluez
 bluez-utils
+ccache
 cdrtools
 cmake
 cpio
@@ -146,6 +147,7 @@ dvd+rw-tools
 efitools
 encfs
 f2fs-tools
+flatpak
 fuse3
 fwupd
 gdb
@@ -201,6 +203,54 @@ udisks2
 upower
 xdg-user-dirs
 xdg-utils
+
+# BlackArch Linux packages
+blackarch-keyring
+blackarch-mirrorlist
+
+# Pentest tools
+bettercap
+httrack
+wireshark-cli
+joomscan
+rustscan
+smtp-user-enum
+termshark
+radare2
+aircrack-ng
+amass
+crackmapexec
+dirb
+dirbuster
+enum4linux
+ffuf
+gobuster
+hashcat
+hashcat-utils
+hashid
+hash-identifier
+httpx
+hydra
+john
+nikto
+nuclei
+nuclei-templates
+proxychains-ng
+seclists
+sslscan
+theharvester
+wireshark-qt
+wordlistctl
+wpscan
+
+
+# Cli tools
+docker
+docker-compose
+docker-scan
+android-tools
+ansible
+
 
 # Compression
 bzip2
@@ -896,8 +946,6 @@ clang
 compiler-rt
 containerd
 convertlit
-docker
-docker-compose
 ebook-tools
 efivar
 electron28
@@ -916,7 +964,6 @@ gtk4
 gtk-engines
 gtkmm-4.0
 gutenprint
-hashcat
 hwloc
 java-environment-common
 java-runtime-common
