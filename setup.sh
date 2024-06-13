@@ -90,7 +90,7 @@ addnmlinks() {
 gotools() {
     mkdir -p /tmp/gotools
     GOBIN=/tmp/gotools go install github.com/tomnomnom/assetfinder@latest
-    GOBIN=/tmp/gotools go install -v github.com/projectdiscovery/dnsx/cmd/dnsx@latest
+    # GOBIN=/tmp/gotools go install -v github.com/projectdiscovery/dnsx/cmd/dnsx@latest
     # GOBIN=/tmp/gotools go install -v github.com/owasp-amass/amass/v4/...@master
     GOBIN=/tmp/gotools go install github.com/bp0lr/gauplus@latest
     GOBIN=/tmp/gotools go install github.com/deletescape/goop@latest

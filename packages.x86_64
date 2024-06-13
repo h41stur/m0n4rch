@@ -222,6 +222,7 @@ amass
 crackmapexec
 dirb
 dirbuster
+dnsx
 enum4linux
 ffuf
 gobuster
@@ -239,6 +240,7 @@ proxychains-ng
 seclists
 sslscan
 theharvester
+tor
 wireshark-qt
 wordlistctl
 wpscan
