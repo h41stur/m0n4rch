@@ -111,7 +111,7 @@ ws-icon-default = 
 # if some of them doesn't suit your environment, you can change
 # it from here.
 # network interface, check by `ip link show`
-interface = wlo1 
+interface = wlan0 
 
 ## battery
 # when the current battery capacity excess this value,
