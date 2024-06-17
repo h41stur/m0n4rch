@@ -41,3 +41,4 @@ xsetroot -cursor_name left_ptr &
 setxkbmap us_intl
 xsettingsd &
 picom &
+ulauncher &

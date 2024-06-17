@@ -41,5 +41,4 @@ xsetroot -cursor_name left_ptr &
 setxkbmap us_intl
 xsettingsd &
 picom &
-sudo alacritty -e bash /etc/calamares/scripts/update_mirrors
-sudo calamares &
+sudo alacritty -e bash /etc/calamares/scripts/update_mirrors && sudo calamares &

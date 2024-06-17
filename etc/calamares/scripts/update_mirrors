@@ -1,5 +1,7 @@
 #!/bin/bash
 
+banner() {
+
 echo '
                                                                                 
                                                      @                          
@@ -50,17 +52,80 @@ echo '
 =  =====  ===      ===  =  =======  ====  ========   ===  =  ====    =====      ==
 ==================================================================================
 '
+}
 
-echo -e "\n\nUpdating pacman keyrings before install...\n\n"
-sleep 2
+pacmanrings() {
+    echo -e "\n\nUpdating pacman keyrings before install...\n\n"
+    sleep 2
+    bash /etc/calamares/scripts/create-pacman-keyring > /dev/null 
+    pacman -Sy --noconfirm archlinux-keyring > /dev/null
+}
 
-bash /etc/calamares/scripts/create-pacman-keyring > /dev/null 
-pacman -Sy --noconfirm archlinux-keyring > /dev/null
+pacmanmirrors() {
+    echo -e "\n\nUpdating pacman mirrors before install...\n\n"
+    sleep 2
 
-echo -e "\n\nUpdating pacman mirrors before install...\n\n"
-sleep 2
+    rate-mirrors --allow-root --save /etc/pacman.d/mirrorlist arch --max-delay 3600
+}
 
-rate-mirrors --allow-root --save /etc/pacman.d/mirrorlist arch --max-delay 3600
+bspwm() {
+    mv /etc/skel/.config/bspwm/m0bspwmrc /etc/skel/.config/bspwm/bspwmrc
+}
+
+checkinternet() {
+    ping -c1 8.8.8.8 2>/dev/null
+
+    if [ $? -ne 0 ];then
+	echo -e "\n\nYou are not connected to the internet!!!\n\nTo continue you need to connect.\n\nWould you like to connect via Wi-Fi? [Y/n]"
+
+	resp="Y"
+	read -p '> ' resp
+	if [[ $resp == "n" ]];then
+	    echo -e "\n\nThe installation cannot continue. Return when you can connect to the internet.\n\nBye"
+	    exit
+	else
+	    connectinternet
+	fi
+    fi
+}
+
+connectinternet() {
+    wifistatus=$(nmcli radio wifi)
+    if [[ $wifistatus != "enabled" ]];then
+	nmcli radio wifi on 2>/dev/null
+	if [ $? -ne 0 ];then
+	    echo -e "\n\nError activating the wifi interface. Connect a cable and restart the installation"
+	    exit
+	fi
+    fi
+
+    conn
+    checkinternet
+}
+
+conn() {
+
+    nmcli -t -f SSID,RATE,BARS,SECURITY dev wifi list
+    echo -e "\n\nWhich network do you want do connect to?\n"
+    read -p 'BSSID: ' bssid
+
+    nmcli --ask dev wifi connect $bssid 2> /tmp/logconn
+    if [ $? -ne 0 ];then
+	echo -e "\nError to connect: \n$(cat /tmp/logconn)"
+	resp="Y"
+	echo -e "\n\nDo you want to try again? [Y/n]?"
+	read -p '> ' resp
+	if [[ $resp == 'n' ]];then
+	    echo -e "\n\nThe installation cannot continue. Return when you can connect to the internet.\n\nBye"
+	    exit
+	fi
+	connectinternet
+    fi
+}
 
 
-mv /etc/skel/.config/bspwm/m0bspwmrc /etc/skel/.config/bspwm/bspwmrc
+banner
+checkinternet
+pacmanrings
+pacmanmirrors
+bspwm
