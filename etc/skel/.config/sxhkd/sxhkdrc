@@ -162,6 +162,10 @@ super + shift + m
 super + alt + w
     $HOME/.fehbg
 
+# alt + tab
+alt + Tab
+    rofi -show window -window-thumbnail
+
 # BurpSuite
 ctrl + alt + b
     "/usr/lib/jvm/java-21-openjdk/bin/java" "--add-opens=java.desktop/javax.swing=ALL-UNNAMED" "--add-opens=java.base/java.lang=ALL-UNNAMED" "--add-opens=java.base/jdk.internal.org.objectweb.asm=ALL-UNNAMED" "--add-opens=java.base/jdk.internal.org.objectweb.asm.tree=ALL-UNNAMED" "--add-opens=java.base/jdk.internal.org.objectweb.asm.Opcodes=ALL-UNNAMED" "-javaagent:/etc/opt/Burpsuite/BurpLoaderKeygen.jar" "-noverify" "-jar" "/etc/opt/Burpsuite/burpsuite_pro_v2024.5.jar"
