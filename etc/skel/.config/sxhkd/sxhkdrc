@@ -1,10 +1,14 @@
-#
+
 # wm independent hotkeys
 #
 
 # terminal emulator
 super + Return
 	alacritty
+
+# terminal floating
+super + alt + t
+    alacritty --class 'Alacritty Floating'
 
 # program launcher
 super + @space
@@ -154,6 +158,10 @@ super + alt + s
 super + slash
 	~/.local/bin/sxhkd-help
 
+# auto Desktop 1
+super + alt + 1
+    ~/.local/bin/desktop1
+
 # turn off monitors
 super + shift + m 
 	sleep 1 && xset -display :0.0 dpms force off
@@ -168,4 +176,4 @@ alt + Tab
 
 # BurpSuite
 ctrl + alt + b
-    "/usr/lib/jvm/java-21-openjdk/bin/java" "--add-opens=java.desktop/javax.swing=ALL-UNNAMED" "--add-opens=java.base/java.lang=ALL-UNNAMED" "--add-opens=java.base/jdk.internal.org.objectweb.asm=ALL-UNNAMED" "--add-opens=java.base/jdk.internal.org.objectweb.asm.tree=ALL-UNNAMED" "--add-opens=java.base/jdk.internal.org.objectweb.asm.Opcodes=ALL-UNNAMED" "-javaagent:/etc/opt/Burpsuite/BurpLoaderKeygen.jar" "-noverify" "-jar" "/etc/opt/Burpsuite/burpsuite_pro_v2024.5.jar"
+    "/usr/lib/jvm/java-21-openjdk/bin/java" "--add-opens=java.desktop/javax.swing=ALL-UNNAMED" "--add-opens=java.base/java.lang=ALL-UNNAMED" "--add-opens=java.base/jdk.internal.org.objectweb.asm=ALL-UNNAMED" "--add-opens=java.base/jdk.internal.org.objectweb.asm.tree=ALL-UNNAMED" "--add-opens=java.base/jdk.internal.org.objectweb.asm.Opcodes=ALL-UNNAMED" "-javaagent:/etc/opt/Burpsuite/BurpLoaderKeygen.jar" "-noverify" "-jar" "/etc/opt/Burpsuite/burpsuite_pro_v2024.5.3.jar"

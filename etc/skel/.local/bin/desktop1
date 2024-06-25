@@ -1,0 +1,7 @@
+#!/bin/bash
+
+bspc desktop -f ^1
+sleep 0.05
+
+bspc rule -a 'Google-chrome' state=floating rectangle=1957x1335+4+51 && google-chrome-stable &
+bspc rule -a 'Alacritty Desktop1' state=floating rectangle=1319x756+2086+191 && alacritty --class 'Alacritty Desktop1' &
