@@ -1236,7 +1236,10 @@ mkinitcpio-openswap
 # AUR
 downgrade
 trizen
+betterlockscreen
 blesh
+brightnessctl
+calcurse
 clash
 clipmenu
 dunst
@@ -1245,13 +1248,16 @@ google-chrome
 networkmanager-dmenu-git
 nwg-look-bin
 nwg-look-bin-debug
+maim
 onedrive
 onedrive-debug
 otf-font-awesome
-polybar
+playerctl
+#polybar
 rate-mirrors
 rate-mirrors-debug
 redshift
+todotxt
 ttf-font-awesome
 ulauncher
 vim-instant-markdown

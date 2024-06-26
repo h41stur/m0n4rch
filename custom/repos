@@ -1,5 +1,5 @@
 https://aur.archlinux.org/yay.git
-https://aur.archlinux.org/polybar-git.git
+#https://aur.archlinux.org/polybar-git.git
 https://aur.archlinux.org/ulauncher.git
 https://aur.archlinux.org/font-awesome-5.git
 https://aur.archlinux.org/dunst-git.git
@@ -16,3 +16,9 @@ https://aur.archlinux.org/nwg-look-bin.git
 https://aur.archlinux.org/rate-mirrors.git
 https://aur.archlinux.org/exa-git.git
 https://aur.archlinux.org/watson.git
+https://aur.archlinux.org/calcurse-git.git
+https://aur.archlinux.org/todotxt.git
+https://aur.archlinux.org/betterlockscreen.git
+https://aur.archlinux.org/brightnessctl-git.git
+https://aur.archlinux.org/playerctl-git.git
+https://aur.archlinux.org/maim-git.git

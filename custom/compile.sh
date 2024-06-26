@@ -17,16 +17,18 @@ for i in $(/bin/ls PkgBuilds); do
 done
 
 for i in $(cat repos ); do
-    pkgname=$(echo $i | cut -d "/" -f 4 | sed 's|\.git||')
-    git clone $i
-    if [[ ! -d "${pkgname}" ]]; then
-        pkgname=$(echo $i | cut -d "/" -f 5 | sed 's|\.git||')
+    if [[ ${i:0:1} != "#" ]]; then
+        pkgname=$(echo $i | cut -d "/" -f 4 | sed 's|\.git||')
+        git clone $i
+        if [[ ! -d "${pkgname}" ]]; then
+            pkgname=$(echo $i | cut -d "/" -f 5 | sed 's|\.git||')
+        fi
+        cd "${pkgname}" || exit
+        makechrootpkg -c -r "${CHROOT}"
+        mv *.pkg.tar.zst ..
+        cd ../ || exit
+        rm -rf "${pkgname}"
     fi
-    cd "${pkgname}" || exit
-    makechrootpkg -c -r "${CHROOT}"
-    mv *.pkg.tar.zst ..
-    cd ../ || exit
-    rm -rf "${pkgname}"
 done
 
 sudo rm -rf "${CHROOT}"

@@ -6,6 +6,18 @@
 super + Return
 	alacritty
 
+# Toggle eww dashboard
+super + d
+    sh $HOME/.local/bin/dashboard
+
+# Toggle notification center
+super + o
+    sh $HOME/.local/bin/notificationcenter
+
+# Lockscreen
+ctrl + alt + l
+    betterlockscreen -l
+
 # terminal floating
 super + alt + t
     alacritty --class 'Alacritty Floating'
