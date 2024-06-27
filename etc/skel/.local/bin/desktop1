@@ -1,7 +1,21 @@
 #!/bin/bash
 
+
+screenwidth=$(xdpyinfo | awk -F'[ x]+' '/dimensions:/{print $3}')
+screenheight=$(xdpyinfo | awk -F'[ x]+' '/dimensions:/{print $4}')
+#windowx=$(("$screenwidth" / 2 - "$windowwidth" / 2))
+chromewidth=`echo "scale=0; $screenwidth / 1.75" | bc`
+chromewheight=$(($screenheight-20))
+termwidth=`echo "scale=0; $screenwidth / 2.5" | bc`
+termheight=`echo "scale=0; $screenheight / 1.6" | bc`
+windowy=$(("$screenheight" / 2 -"$termheight" / 2))
+
+echo $chromewidth
+
+#bspc rule -a 'Alacritty Floating' state=floating rectangle="$windowwidth"x"$windowheight"+"$windowx"+"$windowy"
+
 bspc desktop -f ^1
 sleep 0.05
 
-bspc rule -a 'Google-chrome' state=floating rectangle=1954x1408+64+11 && google-chrome-stable &
-bspc rule -a 'Alacritty Desktop1' state=floating rectangle=1319x756+2086+191 && alacritty --class 'Alacritty Desktop1' &
+bspc rule -a 'Google-chrome' state=floating rectangle="$chromewidth"x"$chromewheight"+62+10 && google-chrome-stable &
+bspc rule -a 'Kitty Desktop1' state=floating rectangle="$termwidth"x"$termheight"+$(($chromewidth+85))+"$windowy" && kitty --class 'Kitty Desktop1' --hold neofetch --kitty /usr/share/images/logo_term.png  &

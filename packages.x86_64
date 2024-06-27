@@ -379,6 +379,7 @@ bspwm
 feh
 gtk-engine-murrine
 jq
+kitty
 picom
 rofi
 sxhkd
@@ -389,6 +390,7 @@ thunar-volman
 ttf-nerd-fonts-symbols
 xorg-xbacklight
 xorg-xdpyinfo
+w3m
 
 # Networking
 avahi

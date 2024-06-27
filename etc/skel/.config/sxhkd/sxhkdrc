@@ -4,7 +4,8 @@
 
 # terminal emulator
 super + Return
-	alacritty
+#	alacritty
+    kitty
 
 # Toggle eww dashboard
 super + d
@@ -20,7 +21,8 @@ ctrl + alt + l
 
 # terminal floating
 super + alt + t
-    alacritty --class 'Alacritty Floating'
+    #alacritty --class 'Alacritty Floating'
+    kitty --class 'Kitty Floating'
 
 # program launcher
 super + @space
