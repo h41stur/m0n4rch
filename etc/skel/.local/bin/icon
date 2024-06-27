@@ -1,0 +1,12 @@
+#!/bin/bash
+
+for a in "e" "f"; do
+    for b in {0..9} {a..f}; do
+        for c in {a..f} {0..9}; do
+            for d in {0..9} {a..f}; do
+                echo -e -n "\u$a$b$c$d  "
+            done
+        done
+    done
+done
+echo
