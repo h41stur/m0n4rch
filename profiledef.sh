@@ -29,4 +29,5 @@ file_permissions=(
   ["/etc/skel/.local/bin/"]="1000:1000:755"
   ["/etc/skel/.xinitrc"]="1000:1000:755"
   ["/etc/skel/.fehbg"]="1000:1000:755"
+  ["/etc/skel/.config/bspwm/bin/"]="1000:1000:755"
 )
