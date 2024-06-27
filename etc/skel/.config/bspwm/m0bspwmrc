@@ -42,10 +42,10 @@ vmware-user-suid-wrapper
 vmhgfs-fuse -o allow_other -o auto_unmount .host:/shared ${HOME}/shared
 
 # Run EWW.
-$HOME/.local/bin/eww -c $HOME/.config/eww/bar --restart open bar &
+${HOME}/.local/bin/eww -c ${HOME}/.config/eww/bar --restart open bar &
 
 # Run notification daemon.
-dunst --config $HOME/.config/dunst/dunstrc &
+dunst --config ${HOME}/.config/dunst/dunstrc &
 
 # Run Picom.
 picom &

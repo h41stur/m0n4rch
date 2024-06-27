@@ -23,6 +23,3 @@ git clone https://github.com/xnl-h4ck3r/xnLinkFinder.git /opt/xnLinkFinder
 pip3 install -r /opt/xnLinkFinder/requirements.txt --break-system-packages
 
 git clone --depth 1 https://github.com/sqlmapproject/sqlmap.git /opt/sqlmap-dev
-
-# AUR
-yay -S --noconfirm betterlockscreen

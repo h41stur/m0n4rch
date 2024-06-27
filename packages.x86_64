@@ -1238,7 +1238,7 @@ mkinitcpio-openswap
 # AUR
 downgrade
 trizen
-#betterlockscreen
+betterlockscreen
 blesh
 brightnessctl
 calcurse

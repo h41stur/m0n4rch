@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo pacman -S --noconfirm devtools
+sudo pacman -S --noconfirm --needed devtools
 
 CHROOT="${HOME}"/Documents/chroot
 mkdir -p "${CHROOT}"
@@ -24,7 +24,14 @@ for i in $(cat repos ); do
             pkgname=$(echo $i | cut -d "/" -f 5 | sed 's|\.git||')
         fi
         cd "${pkgname}" || exit
-        makechrootpkg -c -r "${CHROOT}"
+        if [[ "${pkgname}" == "betterlockscreen" ]];then
+            rm ../i3lock-color-debug*
+            cp ../i3lock-color* ./i3lock-color.pkg.tar.zst
+            makechrootpkg -I i3lock-color.pkg.tar.zst -r "${CHROOT}"
+            rm i3lock-color.pkg.tar.zst
+        else 
+            makechrootpkg -c -r "${CHROOT}"
+        fi
         mv *.pkg.tar.zst ..
         cd ../ || exit
         rm -rf "${pkgname}"
