@@ -54,6 +54,10 @@ echo '
 '
 }
 
+grubcfg() {
+    grub-mkconfig -o /boot/grub/grub.cfg
+}
+
 pacmanrings() {
     echo -e "\n\nUpdating pacman keyrings before install...\n\n"
     sleep 2
@@ -125,6 +129,7 @@ conn() {
 
 
 banner
+grubcfg
 checkinternet
 pacmanrings
 pacmanmirrors
