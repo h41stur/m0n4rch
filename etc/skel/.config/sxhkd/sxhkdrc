@@ -21,8 +21,8 @@ ctrl + alt + l
 
 # terminal floating
 super + alt + t
-    #alacritty --class 'Alacritty Floating'
-    kitty --class 'Kitty Floating'
+#   alacritty --class 'Alacritty Floating'
+    kitty --class 'Kitty Floating' 
 
 # program launcher
 super + @space
@@ -166,7 +166,7 @@ super + ctrl + Down
 
 # shutdown
 super + alt + s
-	~/.config/polybar/scripts/powermenu.sh &
+    ~/.config/eww/scripts/powermenu &
 
 # show help
 super + slash

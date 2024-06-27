@@ -115,6 +115,7 @@ windowy=$(("$screenheight" / 2 -"$windowheight" / 2))
 #bspc rule -a 'Alacritty Floating' state=floating
 bspc rule -a 'Kitty Floating' state=floating rectangle="$windowwidth"x"$windowheight"+"$windowx"+"$windowy"
 bspc rule -a 'Google-chrome' state=floating
+bspc rule -a 'calamares' state=floating
 bspc rule -a Gimp desktop='^8' state=floating follow=on
 bspc rule -a Chromium desktop='^2'
 bspc rule -a mplayer2 state=floating
