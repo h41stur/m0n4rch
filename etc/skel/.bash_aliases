@@ -24,5 +24,5 @@ alias sqlmap='python3 /opt/sqlmap-dev/sqlmap.py'
 alias weather="curl https://wttr.in"
 alias theHarvester="python3 /opt/theHarvester/theHarvester.py"
 alias getwindow="xdotool selectwindow getwindowgeometry"
-alias l="br -s"
+alias l="broot -s"
 complete -W "\$(gf -list)" gf
