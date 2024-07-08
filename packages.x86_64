@@ -11,6 +11,7 @@ bind
 bolt
 brltty
 btrfs-progs
+broot
 clonezilla
 cryptsetup
 darkhttpd
@@ -209,6 +210,7 @@ blackarch-keyring
 blackarch-mirrorlist
 
 # Pentest tools
+android-tools
 bettercap
 httrack
 wireshark-cli
@@ -233,14 +235,18 @@ hash-identifier
 httpx
 hydra
 john
+metasploit
 nikto
 nuclei
 nuclei-templates
 proxychains-ng
 seclists
+scrcpy
 sslscan
+subfinder
 theharvester
 tor
+wapiti
 wireshark-qt
 wordlistctl
 wpscan

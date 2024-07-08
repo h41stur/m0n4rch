@@ -18,4 +18,4 @@ bspc desktop -f ^1
 sleep 0.05
 
 bspc rule -a 'Google-chrome' state=floating rectangle="$chromewidth"x"$chromewheight"+62+10 && google-chrome-stable &
-bspc rule -a 'Kitty Desktop1' state=floating rectangle="$termwidth"x"$termheight"+$(($chromewidth+85))+"$windowy" && kitty --class 'Kitty Desktop1' --hold neofetch --kitty /usr/share/images/logo_term.png  &
+bspc rule -a 'Kitty Desktop1' state=floating rectangle="$termwidth"x"$termheight"+$(($chromewidth+85))+"$windowy" && kitty --class 'Kitty Desktop1' --hold bash -c "tmux new-session -d -s startUp -n M0n4rch; tmux send-keys -t startUp:M0n4rch 'neofetch' Enter; tmux attach -t startUp:M0n4rch" &

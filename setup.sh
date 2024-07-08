@@ -114,6 +114,7 @@ gotools() {
     GOBIN=/tmp/gotools go install github.com/003random/getJS@latest
     GOBIN=/tmp/gotools go install github.com/gruntwork-io/git-xargs@latest
     GOBIN=/tmp/gotools go install github.com/lc/gau/v2/cmd/gau@latest
+    GOBIN=/tmp/gotools go install -v github.com/tomnomnom/anew@latest
 }
 
 # Copy files to customize the ISO
