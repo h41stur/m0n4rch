@@ -143,6 +143,37 @@ function encrypt_pdf {
     fi
 }
 
+function mobsf {
+    if [ $# -eq 0 ]; then
+        echo -e "\n\tmobsf <dir_to_persist>\nOR\n\tmobsf <dir_to_persist> <'IP:5555'>"
+        echo
+    elif [ $# -eq 1 ]; then
+        mkdir -p $1
+        sudo chown 9901:9901 $1
+        sudo docker run -it --rm --name mobsf -p 8000:8000 -v $1:/home/mobsf/.MobSF opensecurity/mobile-security-framework-mobsf:latest
+    else
+        sudo docker run -e MOBSF_ANALYZER_IDENTIFIER="$2" -it --rm --name mobsf -p 8000:8000 -v $1:/home/mobsf/.MobSF opensecurity/mobile-security-framework-mobsf:latest
+    fi
+}
+
+# This function starts broot and executes the command
+# it produces, if any.
+# It's needed because some shell commands, like `cd`,
+# have no useful effect if executed in a subshell.
+function br {
+    local cmd cmd_file code
+    cmd_file=$(mktemp)
+    if broot --outcmd "$cmd_file" "$@"; then
+        cmd=$(<"$cmd_file")
+        command rm -f "$cmd_file"
+        eval "$cmd"
+    else
+        code=$?
+        command rm -f "$cmd_file"
+        return "$code"
+    fi
+}
+
 
 # enable bash completion in interactive shells
 if ! shopt -oq posix; then
