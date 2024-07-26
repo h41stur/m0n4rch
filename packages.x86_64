@@ -236,8 +236,12 @@ hash-identifier
 httpx
 hydra
 john
+lib32-gcc-libs
 metasploit
+mingw-w64-gcc
+nasm
 nikto
+nipe
 nuclei
 nuclei-templates
 proxychains-ng
@@ -247,7 +251,7 @@ sslscan
 subfinder
 theharvester
 tor
-wapiti
+tor-browser
 wireshark-qt
 wordlistctl
 wpscan
@@ -1252,6 +1256,7 @@ calcurse
 clash
 clipmenu
 dunst
+eclipse-cpp-bin
 exa-git
 google-chrome
 networkmanager-dmenu-git

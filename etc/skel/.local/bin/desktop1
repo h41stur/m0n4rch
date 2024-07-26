@@ -10,7 +10,7 @@ termwidth=`echo "scale=0; $screenwidth / 2.5" | bc`
 termheight=`echo "scale=0; $screenheight / 1.6" | bc`
 windowy=$(("$screenheight" / 2 -"$termheight" / 2))
 
-echo $chromewidth
+#echo $chromewidth
 
 #bspc rule -a 'Alacritty Floating' state=floating rectangle="$windowwidth"x"$windowheight"+"$windowx"+"$windowy"
 
@@ -18,4 +18,17 @@ bspc desktop -f ^1
 sleep 0.05
 
 bspc rule -a 'Google-chrome' state=floating rectangle="$chromewidth"x"$chromewheight"+62+10 && google-chrome-stable &
+sleep 2
 bspc rule -a 'Kitty Desktop1' state=floating rectangle="$termwidth"x"$termheight"+$(($chromewidth+85))+"$windowy" && kitty --class 'Kitty Desktop1' --hold bash -c "tmux new-session -d -s startUp -n M0n4rch; tmux send-keys -t startUp:M0n4rch 'neofetch' Enter; tmux attach -t startUp:M0n4rch" &
+
+sleep 5
+
+bspc desktop -f ^3
+sleep 0.05
+bspc rule -a 'Code' state=tiled && code &
+
+sleep 10
+
+bspc desktop -f ^2
+sleep 0.05
+bspc rule -a 'obsidian' state=tiled && obsidian &
