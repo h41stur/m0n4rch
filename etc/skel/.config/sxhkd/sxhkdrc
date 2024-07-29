@@ -184,6 +184,10 @@ super + shift + m
 super + alt + w
     $HOME/.fehbg
 
+# Thunar
+super + ctrl + f
+    thunar &
+
 # alt + tab
 alt + Tab
     rofi -show window -window-thumbnail
