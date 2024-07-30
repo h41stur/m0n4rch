@@ -106,7 +106,7 @@ gotools() {
     GOBIN=/tmp/gotools go install -v github.com/hueristiq/xurlfind3r/cmd/xurlfind3r@latest
     GOBIN=/tmp/gotools go install github.com/ferreiraklet/airixss@latest
     GOBIN=/tmp/gotools go install github.com/ferreiraklet/nilo@latest
-    # GOBIN=/tmp/gotools go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest
+    GOBIN=/tmp/gotools go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest
     GOBIN=/tmp/gotools go install github.com/lc/subjs@latest
     GOBIN=/tmp/gotools go install github.com/tomnomnom/qsreplace@latest
     GOBIN=/tmp/gotools go install github.com/hakluke/hakrawler@latest

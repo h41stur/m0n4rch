@@ -233,7 +233,6 @@ hashcat
 hashcat-utils
 hashid
 hash-identifier
-httpx
 hydra
 john
 lib32-gcc-libs

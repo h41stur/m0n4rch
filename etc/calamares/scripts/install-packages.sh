@@ -22,6 +22,9 @@ pip3 install -r /opt/JSScanner/requirements.txt --break-system-packages
 git clone https://github.com/xnl-h4ck3r/xnLinkFinder.git /opt/xnLinkFinder
 pip3 install -r /opt/xnLinkFinder/requirements.txt --break-system-packages
 
+git clone https://github.com/ticarpi/jwt_tool.git /opt/jwt_tool
+pip3 install -r /opt/jwt_tool/requirements.txt --break-system-packages
+
 git clone --depth 1 https://github.com/sqlmapproject/sqlmap.git /opt/sqlmap-dev
 
 pip3 install aort --break-system-packages
