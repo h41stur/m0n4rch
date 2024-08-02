@@ -21,7 +21,7 @@ https://aur.archlinux.org/todotxt.git
 https://aur.archlinux.org/brightnessctl-git.git
 https://aur.archlinux.org/playerctl-git.git
 https://aur.archlinux.org/maim-git.git
-https://aur.archlinux.org/i3lock-color.git
-https://aur.archlinux.org/betterlockscreen.git
+#https://aur.archlinux.org/i3lock-color.git
+#https://aur.archlinux.org/betterlockscreen.git
 https://aur.archlinux.org/onlyoffice-bin.git
 https://aur.archlinux.org/eclipse-cpp-bin.git
