@@ -27,4 +27,7 @@ pip3 install -r /opt/jwt_tool/requirements.txt --break-system-packages
 
 git clone --depth 1 https://github.com/sqlmapproject/sqlmap.git /opt/sqlmap-dev
 
+git clone https://gitlab.com/exploit-database/exploitdb.git /opt/exploitdb
+ln -sf /opt/exploitdb/searchsploit /usr/local/bin/searchsploit
+
 pip3 install aort --break-system-packages
