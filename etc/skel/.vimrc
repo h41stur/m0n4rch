@@ -25,7 +25,7 @@ Plugin 'cj/vim-webdevicons'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'suan/vim-instant-markdown', {'rtp': 'after'}
-Plugin 'Shougo/neocomplete.vim'
+Plugin 'ycm-core/YouCompleteMe'
 
 call vundle#end()
 filetype plugin indent on
