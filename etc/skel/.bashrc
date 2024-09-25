@@ -143,6 +143,15 @@ function encrypt_pdf {
     fi
 }
 
+function capture-pane {
+    if [ $# -eq 0 ]; then
+        echo -e "\n\tcapture-pane <dest file>"
+        echo
+    else
+        tmux capture-pane -pS- > $1
+    fi
+}
+
 function mobsf {
     if [ $# -eq 0 ]; then
         echo -e "\n\tmobsf <dir_to_persist>\nOR\n\tmobsf <dir_to_persist> <'IP:5555'>"
